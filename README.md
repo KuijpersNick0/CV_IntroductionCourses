@@ -1,1 +1,1 @@
-# CV_IntroductionCourses
+# Computer Vision Introduction Courses for VCG FA
