@@ -14,7 +14,7 @@ image = cv2.imread(image_path)
 # Function to change brightness
 def adjust_brightness(image, value):
     hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)  # Convert to HSV for better brightness control
-    h, s, v = cv2.split(hsv) 
+    h, s, v = cv2.split(hsv)
     v = cv2.add(v, value)  # Add brightness (value can be negative for darker)
     final_hsv = cv2.merge((h, s, v))
     bright_img = cv2.cvtColor(final_hsv, cv2.COLOR_HSV2BGR)
@@ -38,21 +38,30 @@ def binarize_image(image, threshold=128):
 def apply_convolution_filter(image, kernel):
     return cv2.filter2D(image, -1, kernel)
 
+# 1
 # Manipulate the image using the functions above
 bright_image = adjust_brightness(image, 50)  # Increase brightness by 50
-cropped_image = crop_image(image, 50, 50, 200, 200)  # Crop a region of the image
-gray_image = convert_to_grayscale(image)  # Convert to grayscale
-binary_image = binarize_image(image)  # Binarize the image with a threshold
-blur_kernel = np.ones((5, 5), np.float32) / 25  # Create a blur kernel
-blurred_image = apply_convolution_filter(image, blur_kernel)  # Apply blur filter
-
-# Show the original and manipulated images
-cv2.imshow('Original Image', image)
 cv2.imshow('Brightened Image', bright_image)
-cv2.imshow('Cropped Image', cropped_image)
-cv2.imshow('Grayscale Image', gray_image)
-cv2.imshow('Binarized Image', binary_image)
-cv2.imshow('Blurred Image', blurred_image)
+
+# 2
+# cropped_image = crop_image(image, 50, 50, 200, 200)  # Crop a region of the image
+# cv2.imshow('Cropped Image', cropped_image)
+
+# 3
+# gray_image = convert_to_grayscale(image)  # Convert to grayscale
+# cv2.imshow('Grayscale Image', gray_image)
+
+# 4
+# binary_image = binarize_image(image, 30)  # Binarize the image with a threshold
+# cv2.imshow('Binarized Image', binary_image)
+
+# 5
+# blur_kernel = np.ones((5, 5), np.float32) / 25  # Create a blur kernel
+# blurred_image = apply_convolution_filter(image, blur_kernel)  # Apply blur filter
+# cv2.imshow('Blurred Image', blurred_image)
+
+# Show the original 
+cv2.imshow('Original Image', image) 
 
 # Wait for a key press and close all windows
 cv2.waitKey(0)
