@@ -3,6 +3,7 @@
 # Imports
 import cv2
 import os
+from time import sleep
 
 # Create a folder to save images if it doesn't exist
 save_folder = './images'
@@ -10,7 +11,8 @@ if not os.path.exists(save_folder):
     os.makedirs(save_folder)
 
 # Access the webcam
-cap = cv2.VideoCapture(1)
+cap = cv2.VideoCapture(0)
+print("cap is ok")
 
 if not cap.isOpened():
     print("Cannot open the camera")
@@ -33,8 +35,12 @@ cap.release()
 # Load the saved image to display
 saved_image = cv2.imread(image_path)
 
+
 # Display the saved image
 cv2.imshow('Captured Image', saved_image)
+
+# save image in /image
+filename = datetime.now().strftime("spy_%H.%M.%S_%Y-%m-%d.jpg")
 
 # Wait for a key press and then close the image window
 cv2.waitKey(0)

@@ -14,7 +14,7 @@ if not os.path.exists(save_folder):
     os.makedirs(save_folder)
 
 # Initialize webcam
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(1)
 
 if not cap.isOpened():
     print("Cannot open the camera")
