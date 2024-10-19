@@ -4,6 +4,7 @@
 import cv2
 import os
 from time import sleep
+from datetime import datetime
 
 # Create a folder to save images if it doesn't exist
 save_folder = './images'

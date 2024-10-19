@@ -7,7 +7,7 @@
 # => Is pre-trained, can be directly used
 
 # To install tensorflow library
-# pip install tensorflow
+# c
 
 # The model is not that good...
 
