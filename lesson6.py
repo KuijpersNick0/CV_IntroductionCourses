@@ -4,6 +4,8 @@
 import cv2
 import numpy as np
 import os
+import matplotlib.image as mpimg
+import matplotlib.pyplot as plt
 
 # Path to the image I want to manipulate
 image_path = "./images/captured_image.jpg"
@@ -40,7 +42,10 @@ def apply_convolution_filter(image, kernel):
 
 # Manipulate the image using the functions above
 bright_image = adjust_brightness(image, 50)  # Increase brightness by 50
-cropped_image = crop_image(image, 50, 50, 200, 200)  # Crop a region of the image
+cropped_image = crop_image(image, 250, 150, 225, 350)  # Crop a region of the image
+#plot for easy crop
+plt.imshow(cropped_image)
+plt.show()
 gray_image = convert_to_grayscale(image)  # Convert to grayscale
 binary_image = binarize_image(image)  # Binarize the image with a threshold
 blur_kernel = np.ones((5, 5), np.float32) / 25  # Create a blur kernel
